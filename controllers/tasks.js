@@ -3,11 +3,11 @@ exports.getAllTasks = (req, res) => {
 };
 
 exports.createTask = (req, res) => {
-  res.send("task create");
+  res.json(req.body);
 };
 
 exports.getSingleTask = (req, res) => {
-  res.send("get single task");
+  res.json(req.params.id);
 };
 
 exports.updateTask = (req, res) => {
