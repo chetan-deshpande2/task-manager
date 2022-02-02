@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 // middleware
-const task = require("./routes/task");
+const taskRoute = require("./routes/task");
 
 app.use(express.json());
 
@@ -13,7 +13,8 @@ app.get("/hello", (req, res) => {
   res.send("task Manager");
 });
 
-app.use("/api/v1/tasks", task);
+app.use("/api/v1/tasks", taskRoute);
+
 
 const port = 3002;
 
