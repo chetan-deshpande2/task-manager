@@ -8,6 +8,7 @@ const taskRoute = require("./routes/task");
 const connectDB = require("./db/connect");
 require("dotenv").config();
 
+app.use(express.static("./public"));
 app.use(express.json());
 
 //setting headers
@@ -19,10 +20,6 @@ app.use((req, res, next) => {
 });
  
 //routes
-
-app.get("/hello", (req, res) => {
-  res.send("task Manager");
-});
 
 app.use("/api/v1/tasks", taskRoute);
 
