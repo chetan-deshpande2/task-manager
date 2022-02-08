@@ -7,7 +7,7 @@ const taskSchema = new Schema({
     type: String,
     required: [true, "Must Provide Name"],
     trim: true,
-    maxlength: [50, "name can not be more than 50 chart"],
+    maxlength: 20,
   },
   completed: { type: Boolean, default: false },
 });

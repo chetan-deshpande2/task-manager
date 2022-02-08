@@ -10,6 +10,14 @@ require("dotenv").config();
 
 app.use(express.json());
 
+//setting headers
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST,PATCH, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type , Authorization");
+  next();
+});
+ 
 //routes
 
 app.get("/hello", (req, res) => {
@@ -18,7 +26,7 @@ app.get("/hello", (req, res) => {
 
 app.use("/api/v1/tasks", taskRoute);
 
-const port = 3002;
+const port = process.env.PORT || 3002
 
 const start = async () => {
   try {
